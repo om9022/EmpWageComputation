@@ -8,6 +8,7 @@ public class App
 	public static final int FULL_DAY = 8;	
 	public static final int WAGE_PER_HOUR = 20;	
 	public static final int TOTAL_WORK_DAYS = 20;	
+	public static final int TOTAL_WORK_HOURS = 100;	
 	
     public static void main( String[] args )
     {
@@ -15,7 +16,10 @@ public class App
         
         int TotalWage = 0;
         int dailywage = 0;
-        for(int i=1 ; i<=TOTAL_WORK_DAYS ; i++)
+        int WorkHours = 0;
+        int WorkDays = 0;
+        
+        while (WorkHours < TOTAL_WORK_HOURS && WorkDays < TOTAL_WORK_DAYS )
         {
       
         double empCheck = Math.floor(Math.random() * 10 )% 3;
@@ -24,6 +28,8 @@ public class App
 		dailywage = FULL_DAY * WAGE_PER_HOUR;    
        	System.out.println("Employee is Presentfor full time ");
        	System.out.println("Daily Wage is :"+ dailywage);
+       	WorkHours = WorkHours + FULL_DAY;
+       	WorkDays++; 
        	break;
 					
 				}
@@ -31,6 +37,8 @@ public class App
 			 dailywage = PART_TIME * WAGE_PER_HOUR;    
 			 System.out.println("Employee is Present for Part Time ");
 			 System.out.println("Daily Wage is :"+ dailywage);
+			 WorkHours = WorkHours + PART_TIME;
+			 WorkDays++;
 	
 				break;
 				}
