@@ -29,7 +29,6 @@ public class App
        	System.out.println("Employee is Presentfor full time ");
        	System.out.println("Daily Wage is :"+ dailywage);
        	WorkHours = WorkHours + FULL_DAY;
-       	WorkDays++; 
        	break;
 					
 				}
@@ -38,14 +37,14 @@ public class App
 			 System.out.println("Employee is Present for Part Time ");
 			 System.out.println("Daily Wage is :"+ dailywage);
 			 WorkHours = WorkHours + PART_TIME;
-			 WorkDays++;
 	
 				break;
 				}
 		default:
 			dailywage = 0;
 			System.out.println("Employee is Absent");
-		}	
+		}
+    	WorkDays++; 
         TotalWage = TotalWage + dailywage;
         }
         System.out.println("Total Salary : " + TotalWage);
