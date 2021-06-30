@@ -10,43 +10,46 @@ public class App
 	public static final int TOTAL_WORK_DAYS = 20;	
 	public static final int TOTAL_WORK_HOURS = 100;	
 	
-    public static void main( String[] args )
-    {
-        System.out.println( "Welcome to Emp Wage Computation" );
-        
-        int TotalWage = 0;
-        int dailywage = 0;
-        int WorkHours = 0;
-        int WorkDays = 0;
-        
-        while (WorkHours < TOTAL_WORK_HOURS && WorkDays < TOTAL_WORK_DAYS )
-        {
-      
-        double empCheck = Math.floor(Math.random() * 10 )% 3;
-        switch ((int)empCheck) {
-        case IS_FULL_TIME : {
-		dailywage = FULL_DAY * WAGE_PER_HOUR;    
-       	System.out.println("Employee is Presentfor full time ");
-       	System.out.println("Daily Wage is :"+ dailywage);
-       	WorkHours = WorkHours + FULL_DAY;
-       	break;
-					
-				}
-		case IS_PART_TIME: {
-			 dailywage = PART_TIME * WAGE_PER_HOUR;    
-			 System.out.println("Employee is Present for Part Time ");
-			 System.out.println("Daily Wage is :"+ dailywage);
-			 WorkHours = WorkHours + PART_TIME;
-	
+	public static void main( String[] args )
+	{
+		System.out.println( "Welcome to Employee Wage Computation" );
+		int totalWage = 0;
+		totalWage = calculateEmployeeSalary(totalWage);
+		System.out.println("Total salary :"+ totalWage);
+
+	}
+
+	private static int calculateEmployeeSalary(int totalWage) {
+		int workingHrs=0;
+		int workingdays=0;
+		int dailyWage = 0;
+		while (workingHrs < TOTAL_WORK_HOURS && workingdays < TOTAL_WORK_DAYS )
+		{
+			double empCheck = Math.floor(Math.random() * 10 ) % 3;
+			switch ((int)empCheck) {
+			case IS_FULL_TIME : {
+				dailyWage = FULL_DAY * WAGE_PER_HOUR;    
+				System.out.println("Employee is Present for Full Time ");
+				System.out.println("Daily wage is :"+ dailyWage);
+				workingHrs=workingHrs+FULL_DAY;
+
+				break;			
+			}
+			case IS_PART_TIME: {
+				dailyWage = PART_TIME * WAGE_PER_HOUR;    
+				System.out.println("Employee is Present for Part Time ");	
+				System.out.println("Daily wage is :"+ dailyWage);
+				workingHrs=workingHrs+PART_TIME;
+
 				break;
-				}
-		default:
-			dailywage = 0;
-			System.out.println("Employee is Absent");
+			}
+			default:
+				dailyWage=0;
+				System.out.println("Employee is Absent");
+			}
+			workingdays++;
+			totalWage = totalWage + dailyWage;
 		}
-    	WorkDays++; 
-        TotalWage = TotalWage + dailywage;
-        }
-        System.out.println("Total Salary : " + TotalWage);
-    }
+		return totalWage;
+	}	
 }
